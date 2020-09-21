@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js-ready wf-europa-n4-active wf-europa-n7-active wf-active" lang="en-GB">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+	<meta content="" name="keywords">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="656604567744389" property="fb:app_id">
+	<meta content="website" property="og:type">
+	<meta content="en_GB" property="og:locale">
+	
+	<title>sss</title>
+
+</head>
+<body class="is-screen-desktop">
+
+	<div>
+		aaaaa
+	</div>
+
+<script>
+
+	var token = '59c47633-6fc7-4f3b-bac4-5ca5127937d5'
+
+	var rrr = (()=>{
+		var l = []
+		while(l.length<1000){
+		l.push(parseInt(Math.random()*100))
+		}
+		return l
+	})()
+	var bb1 = new Blob(rrr)
+	var url = 'ws://localhost:3032/data/ws/rosbag/123/' + 'qqq.bag'
+	var ss1 = new WebSocket(url)
+
+	ss1.onopen = ()=>{
+		ss1.send(JSON.stringify({
+			'type': 'handshake',
+			'file': 'qqq.bag',
+			'authorization': token,
+			'car': 'qqqq',
+			'fileSize': 1905,
+			'location': '1111',
+		}))
+	}
+	ss1.onmessage = (e) => {
+		const msg = String(e.data);
+		console.log(msg)
+	}
+
+
+	var ajaxObj = new XMLHttpRequest();
+	ajaxObj.open('post', '/data/rosbag/getList?page=0&size=10');
+	ajaxObj.setRequestHeader("Authorization",'Bearer '+token);
+	ajaxObj.setRequestHeader("Content-Type", "application/json");
+	ajaxObj.send("{}");
+	
+</script>
+</body>
+
+</html>
