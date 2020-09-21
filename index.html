@@ -1,61 +1,212 @@
 <!DOCTYPE html>
-<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js-ready wf-europa-n4-active wf-europa-n7-active wf-active" lang="en-GB">
+<html
+    class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js-ready wf-europa-n4-active wf-europa-n7-active wf-active"
+    lang="en-GB">
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-	<meta content="" name="keywords">
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<meta content="656604567744389" property="fb:app_id">
-	<meta content="website" property="og:type">
-	<meta content="en_GB" property="og:locale">
-	
-	<title>sss</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="656604567744389" property="fb:app_id">
+    <meta content="website" property="og:type">
+    <meta content="en_GB" property="og:locale">
+
+    <title>签到</title>
 
 </head>
-<body class="is-screen-desktop">
 
-	<div>
-		aaaaa
-	</div>
+<body style="margin: 0; padding: 0;">
+    <div
+        style="width: 100%; height:100vh; background-image: url('bg.jpeg');background-position: center; background-size: cover; display: flex;align-items: center; justify-content: center;">
+        <div id="step1"
+            style="background: rgb(51 51 51 / 0.6); border-radius: 3%; width: 70%; height: 70%; text-align: center;">
+            <p>
+                <strong style="color: #ffc7ad; font-size: 7vw;">湾区都市 品质东莞</strong>
+            </p>
+            <p style="color: #eee; font-size: 5vw;">
+                <label>晚餐安排</label>
+            </p>
+            <p style="color: #eee; font-size: 4vw;">
+                <label>请输入您的姓名，获取用餐安排：</label>
+            </p>
+            <div>
+                <input id="visitorName" type="text" placeholder="姓名" style="
+                width: 40%;
+                height: 5vh;
+                outline: 0;
+                padding: 0 5px;
+            " />
+                <button id="submitButton" style="
+            height: 5vh;
+            width: 20%;
+            background: #4796ec;
+            border: 1px solid #4796ec;
+            color: #fff;
+            font-size: 2.5vw;
+            margin: 10px;
+        " onclick="nameSubmit()">提交</button>
+            </div>
+            <p style="color: #eee; font-size: 3vw;">
+                <label>备注：工作人员可直接输入“工作人员” </label>
+            </p>
+            <p style="color: #eee; font-size: 4vw; margin-top: 8vh;">
+                <label>东莞市委市政府接待办公室</label><br><label>2020年9月23日</label>
+            </p>
+        </div>
+        <div id="step2"
+            style="display: none; background: rgb(51 51 51 / 0.6); border-radius: 3%; width: 70%; height: 70%; text-align: center;">
+            <p>
+                <strong style="color: #ffc7ad; font-size: 7vw;">湾区都市 品质东莞</strong>
+            </p>
+            <p style="color: #eee; font-size: 5vw;">
+                <label>晚餐安排</label>
+            </p>
+            <p style="color: #eee; font-size: 4vw;">
+                <label>尊敬的 <strong id="nameResult" style="color: #eee; font-size: 5vw;"></strong> 同志：</label>
+            </p>
 
-<script>
+            <p style="color: #eee; font-size: 4vw;">
+                <label>欢迎您莅临东莞指导工作。</label>
+            </p>
+            <p style="color: #eee; font-size: 4vw;">
+                <label>您的用餐位置在 <strong id="nameTable" style="color: #eee; font-size: 5vw;"></strong> </label>
+            </p>
+            <p style="color: #eee; font-size: 3.5vw;">
+                <label>感谢您对东莞工作的支持，祝用餐愉快！</label>
+            </p>
 
-	var token = '59c47633-6fc7-4f3b-bac4-5ca5127937d5'
+            <p style="color: #eee; font-size: 4vw; margin-top: 8vh;">
+                <label>东莞市委市政府接待办公室</label><br><label>2020年9月23日</label>
+            </p>
+        </div>
+    </div>
 
-	var rrr = (()=>{
-		var l = []
-		while(l.length<1000){
-		l.push(parseInt(Math.random()*100))
-		}
-		return l
-	})()
-	var bb1 = new Blob(rrr)
-	var url = 'ws://localhost:3032/data/ws/rosbag/123/' + 'qqq.bag'
-	var ss1 = new WebSocket(url)
+    <script>
 
-	ss1.onopen = ()=>{
-		ss1.send(JSON.stringify({
-			'type': 'handshake',
-			'file': 'qqq.bag',
-			'authorization': token,
-			'car': 'qqqq',
-			'fileSize': 1905,
-			'location': '1111',
-		}))
-	}
-	ss1.onmessage = (e) => {
-		const msg = String(e.data);
-		console.log(msg)
-	}
+        var nameTable = ""
+        var nameSubmit = function () {
+            console.log(document.getElementById("visitorName").value)
+            var visitorName = document.getElementById("visitorName").value
+            if (!!visitorName) {
+                switch (visitorName) {
+                    case "黄洲":
+                    case "黄汝生":
+                    case "黄武海":
+                    case "郭忠志":
+                    case "何文凭":
+                    case "黄胜杰":
+                    case "席扬":
+                    case "叶牛平":
+                    case "于敏":
+                        nameTable = "第1副围";
+                        break;
 
+                    case "蒋家柏":
+                    case "邝兵":
+                    case "黄永忠":
+                    case "郑俊康":
+                    case "全桂寿":
+                    case "王乃学":
+                    case "李延强":
+                    case "许永锞":
+                    case "白涛":
+                        nameTable = "第2副围";
+                        break;
 
-	var ajaxObj = new XMLHttpRequest();
-	ajaxObj.open('post', '/data/rosbag/getList?page=0&size=10');
-	ajaxObj.setRequestHeader("Authorization",'Bearer '+token);
-	ajaxObj.setRequestHeader("Content-Type", "application/json");
-	ajaxObj.send("{}");
-	
-</script>
+                    case "李新元":
+                    case "黄海昆":
+                    case "李宏庆":
+                    case "何辛幸":
+                    case "农生文":
+                    case "刘有明":
+                    case "熊春寒":
+                    case "汤波":
+                    case "杨东来":
+                        nameTable = "第3副围";
+                        break;
+
+                    case "曹坤华":
+                    case "莫桦":
+                    case "关礼":
+                    case "陈鸿起":
+                    case "刘俊":
+                    case "蒋连生":
+                    case "廖品琥":
+                    case "王春梅":
+                    case "梁伟培":
+                    case "刘炜":
+                        nameTable = "第4副围";
+                        break;
+
+                    case "范世祥":
+                    case "李葆盛":
+                    case "宋军":
+                    case "任庆华":
+                    case "姜新安":
+                    case "王书陆":
+                    case "薛吉平":
+                    case "胡俊华":
+                    case "蔡伏青":
+                    case "吴志刚":
+                        nameTable = "第5副围";
+                        break;
+
+                    case "李志刚":
+                    case "尚玉清":
+                    case "马瑞":
+                    case "董希楠":
+                    case "李光路":
+                    case "王东江":
+                    case "郭靖":
+                    case "甘伟佳":
+                    case "李刚":
+                    case "钟海波":
+                        nameTable = "第6副围";
+                        break;
+
+                    case "胡海波":
+                    case "丁亮":
+                    case "黄刚":
+                    case "刘丰华":
+                    case "周超文":
+                    case "陈今龙":
+                    case "曾维康":
+                    case "周润良":
+                    case "林海鹏":
+                        nameTable = "第7副围";
+                        break;
+
+                    case "程千":
+                    case "杨海":
+                    case "刘珈麟":
+                    case "曾志群":
+                    case "李嘉鹰":
+                    case "安琪":
+                    case "罗焕平":
+                        nameTable = "第8副围";
+                        break;
+
+                    case "工作人员":
+                        nameTable = "宴会厅2";
+                        break;
+
+                    default:
+                        nameTable = "";
+                        break;
+                }
+
+                if (!nameTable) {
+                    alert("未查询到用餐信息，请核对名字或联系工作人员")
+                } else {
+                    document.getElementById("step1").style.display = "none";
+                    document.getElementById("step2").style.display = "block";
+                    document.getElementById("nameResult").textContent = visitorName;
+                    document.getElementById("nameTable").textContent = nameTable;
+                }
+            } else { alert("请输入正确名字进行查询") }
+        }
+    </script>
 </body>
 
 </html>
